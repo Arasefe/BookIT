@@ -1,5 +1,6 @@
 package BookIT;
 
+import Utilities.WebDriverFactory;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,13 +18,14 @@ public class UserStory1_AC2 {
     1. Verify that the user can log in with valid credentials.
      */
     WebDriver driver;
+
     @BeforeMethod
-    public void setUpDriver(){
-        WebDriverManager.chromedriver().setup();
+    public void setUpDriver() throws InterruptedException{
+        driver = WebDriverFactory.getDriver("chrome");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        driver.get("https://qa2.vytrack.com/user/login");
     }
-
     @Test
     public void loginBookIt1() throws InterruptedException {
         driver.get("https://qa2.vytrack.com/user/login");

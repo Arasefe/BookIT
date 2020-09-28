@@ -1,5 +1,6 @@
 package BookIT;
 
+import Utilities.WebDriverFactory;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,12 +11,13 @@ import java.util.concurrent.TimeUnit;
 
 public class UserStory2_AC3 {
     WebDriver driver;
+
     @BeforeMethod
     public void setUpDriver() throws InterruptedException{
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver=new ChromeDriver();
+        driver = WebDriverFactory.getDriver("chrome");
         driver.manage().window().maximize();
-        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        driver.get("https://qa2.vytrack.com/user/login");
     }
 
     @Test

@@ -22,11 +22,11 @@ public class UserStory1_AC1 {
     WebDriver driver;
 
     @BeforeMethod
-    public void setUpDriver() throws InterruptedException{
+    public void setUpDriver() {
        driver = WebDriverFactory.getDriver("chrome");
        driver.manage().window().maximize();
        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        driver.get("https://qa2.vytrack.com/user/login");
+       driver.get("https://qa2.vytrack.com/user/login");
     }
 
     @Test

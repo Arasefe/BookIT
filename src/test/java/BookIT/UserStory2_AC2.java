@@ -1,24 +1,27 @@
 package BookIT;
 
+import Utilities.WebDriverFactory;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
 public class UserStory2_AC2 {
     WebDriver driver;
-    @BeforeClass
-    public void setUpDriver(){
-        WebDriverManager.chromedriver().setup();
+
+    @BeforeMethod
+    public void setUpDriver() throws InterruptedException{
+        driver = WebDriverFactory.getDriver("chrome");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        driver.get("https://qa2.vytrack.com/user/login");
     }
-
 
     @Test
     public void loginBookIt5() throws InterruptedException {
