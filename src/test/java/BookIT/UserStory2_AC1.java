@@ -46,29 +46,41 @@ public class UserStory2_AC1 {
         Thread.sleep(1000);
         driver.findElement(By.xpath("//button[@type='submit']")).click();
         Thread.sleep(2000);
-
+        // Find the hunt button and click
         driver.findElement(By.xpath("//a[.='hunt']")).click();
         Thread.sleep(500);
-        //
-        driver.findElement(By.xpath("//div[.='28']")).click();
+        // Find the date button
+        // //div[@class='mat-button-ripple mat-ripple mat-button-ripple-round']
+        driver.findElement(By.xpath("//span[@class='mat-button-wrapper']")).click();
         Thread.sleep(500);
-        //
-        driver.findElement(By.xpath("//span[.='from']")).click();
+        // //button[@class='mat-calendar-next-button mat-icon-button']
+        driver.findElement(By.xpath("//button[@class='mat-calendar-next-button mat-icon-button']")).click();
         Thread.sleep(500);
-        //
-        driver.findElement(By.xpath("//span[.=' 7:00am ']")).click();
+        // To enter a day 2 October
+        driver.findElement(By.xpath("//div[.='2']")).click();
         Thread.sleep(500);
-        //
-        driver.findElement(By.xpath("//span[.=' 8:00am ']")).click();
+        // To enter the time from
+        driver.findElement(By.xpath("(//span[.='from'])[1]")).click();
         Thread.sleep(500);
-        //
+        // To enter the time from
+        driver.findElement(By.xpath("//span[.=' 9:00am ']")).click();
+        Thread.sleep(500);
+        // To enter the time to
+        driver.findElement(By.xpath("(//span[.='to'])[1]")).click();
+        Thread.sleep(500);
+        // To enter the time to
+        driver.findElement(By.xpath("//span[.=' 9:30am ']")).click();
+        Thread.sleep(500);
+        // Search //button[@type='submit']
         driver.findElement(By.xpath("//mat-icon[.='search']")).click();
         Thread.sleep(500);
-        //
-        driver.findElement(By.xpath("//*[.='book'])[3]")).click();
+        // To book the room
+        // (//button[@class='button is-transparent is-white'])[1]
+        //(//div[@class='card-footer-item'])[1]
+        driver.findElement(By.xpath("(//button[.='book'])[1]")).click();
         Thread.sleep(500);
         // confirmation page
-        driver.findElement(By.xpath("//button[.='confirm']")).click();
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
         Thread.sleep(500);
         String actualTitle = driver.findElement(By.xpath("//h1[.='yey, you got it']")).getText();
         String expectedResult = "yey, you got it";
