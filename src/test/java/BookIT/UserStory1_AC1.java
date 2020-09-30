@@ -15,9 +15,10 @@ import java.util.concurrent.TimeUnit;
 
 public class UserStory1_AC1 {
     /*
-   As a user, I should be able to login in BookIt login page.
-   Acceptance Criteria :
-   1. Verify that the user can log in with valid credentials.
+    AC#1 Verify that the user can log in with valid credentials.
+    Given I am on BookIt application login page ("https://cybertek-reservation-qa.herokuapp.com/sign-in")
+    When I login with valid credentials.(teachervasctoforstall@gmail.com/scottforstall)
+    Then I should be able to login to BookIT application
     */
     WebDriver driver;
 
@@ -26,19 +27,19 @@ public class UserStory1_AC1 {
        driver = WebDriverFactory.getDriver("chrome");
        driver.manage().window().maximize();
        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-       driver.get("https://qa2.vytrack.com/user/login");
+       driver.get("https://cybertek-reservation-qa.herokuapp.com/sign-in");
     }
 
     @Test
     public void loginBookIt5() throws InterruptedException {
 
-        WebElement name=driver.findElement(By.xpath("//*[@id='prependedInput']"));
+        WebElement name=driver.findElement(By.xpath("//input[@name='email']"));
         name.sendKeys("teachervasctoforstall@gmail.com");
         Thread.sleep(1000);
-        WebElement passWord=driver.findElement(By.xpath("//*[@id='prependedInput2']"));
+        WebElement passWord=driver.findElement(By.xpath("//input[@name='password']"));
         passWord.sendKeys("scottforstall");
         Thread.sleep(1000);
-        driver.findElement(By.xpath("//*[@id='_submit']")).click();
+        driver.findElement(By.xpath("//button[@type='submit']")).click();
         Thread.sleep(1000);
         String actualTitle=driver.getTitle();
         String expectedResult="bookit";
@@ -47,7 +48,8 @@ public class UserStory1_AC1 {
     }
 
     @AfterMethod
-    public void tearDown(){
+    public void tearDown() throws InterruptedException{
+        Thread.sleep(3000);
         driver.close();
     }
 

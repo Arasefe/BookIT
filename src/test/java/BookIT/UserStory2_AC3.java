@@ -10,6 +10,14 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 public class UserStory2_AC3 {
+    /*
+    AC#3 Verify that authorized user can cancel the reserved room at any time
+    Given I am on BookIt application Map page
+    When I push Schedule button.
+    Then I should be able to see the schedule with my reservations
+    When I select the already reserved room and hit on the schedule
+    Then I should be able to cancel the reservation and see the cancellation message
+   */
     WebDriver driver;
 
     @BeforeMethod

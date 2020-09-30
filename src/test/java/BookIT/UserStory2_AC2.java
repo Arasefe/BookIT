@@ -13,6 +13,15 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 public class UserStory2_AC2 {
+    /*
+    AC#2 Verify that authorized user can reserve only one room maximum per day
+    Precondition: I should have already one reservation
+    Given I am on BookIt application Map page
+    When I hit hunt button.
+    And I provide the same date of the previous reservation and time
+    Then I should not be able to reserve the second room.
+   */
+
     WebDriver driver;
 
     @BeforeMethod
